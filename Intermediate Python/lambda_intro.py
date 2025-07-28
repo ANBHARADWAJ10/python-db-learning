@@ -53,3 +53,5 @@ from functools import reduce
 
 product = reduce(lambda x, y: x * y, a)
 print(product)
+
+
