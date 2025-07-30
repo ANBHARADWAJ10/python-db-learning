@@ -39,6 +39,8 @@ if __name__ == "__main__":
     results = search_bing(query)
     save_to_csv(results)
 
+# done with this.
+
 
 # from playwright.sync_api import sync_playwright
 # import csv
