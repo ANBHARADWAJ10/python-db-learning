@@ -1,0 +1,76 @@
+What is playwright?
+    - it is an open-source framework by microsoft for automating browsers
+    - It's used for end-to-end testing, web scraping and automating modern sites using
+      python.
+
+Why?
+    - Cross-browser automation
+    - Reliable and fast, with smart waiting and advanced selector support
+    - Designed for dynamic, javascript-heavy sites
+
+Basic program:
+
+from playwright.sync_api import sync_playwright
+
+with sync-playwright() as p:
+    browser = p.chromium.launch(headless=True)
+    page = browser.new_page()
+    page.goto('https://www.google.com')
+    print(page.title())
+    browser.close()
+
+Note:
+    - headless = True (default) - runs browser without UI
+    - headless = False runs browser with UI
+    - goto() - Navigates to a webpage
+    - page.title() - Retrieves the page title
+
+interacting with web elements:
+    - Locators and Actions
+        - Selectors: identify elements by CSS selectors, text, role, etc.
+        - Example:
+            - page.fill('input[name="username"]', "myuser")
+            - page.click('button[type="submit"]')
+        - wait_for_selector() - Waits until element appears(import for dynamic sites)
+
+
+from playwright.sync_api import sync_playwright
+
+with sync.playwright() as p:
+    browser = p.chromium.launch(headless=True)
+    page = browser.new_page()
+    page.goto('https://www.google.com')
+    page.title()
+    browser.close()
+
+# from playwright.sync_api import sync_playwright
+#
+# with sync_playwright() as p:
+#     browser = p.chromium.launch()
+#     page = browser.new_page()
+#     page.goto('https://www.google.com')
+#     print(page.title())
+#     browser.close()
+#
+# from playwright.sync_api import sync_playwright
+#
+# with sync_playwright() as p:
+#     browser = p.chromium.launch(headless=False)
+#     page = browser.new_page()
+#     page.goto('https://www.example.com')
+#     print(page.title())
+#     browser.close()
+
+# Automate a Google search
+
+🔍 Why the Change?
+Selector update: Google recently changed the input
+from:
+    input[name='q'] to textarea[name='q'] for the search field.
+
+Wait time:
+    Increased to 10 seconds to handle any slowness in rendering.
+
+locator().wait_for()
+    is more robust than page.wait_for_selector() in sync mode.
+
