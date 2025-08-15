@@ -1,0 +1,15 @@
+playwright:
+    - pip install playwright
+    - Core Playwright API
+    - This installs Playwright core (browser automation, API & bindings)
+    - But not the pytest integration
+
+Pytest:
+    - pip install pytest-playwright
+    - installs pytest plugin for playwright
+    - Write tests using pytest structure (def test_..)
+    - Use fixtures like page, browser, etc., without manually launching the browser.
+
+Pytest is a testing framework for python
+    - used to write simple, scalable and readable test cases.
+

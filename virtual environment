@@ -1,0 +1,7 @@
+Activate venv
+
+.\Activate.ps1
+
+Deactivate
+
+deactivate

@@ -1,0 +1,50 @@
+The 3 Main Building Blocks
+
+1. Browser
+    Represents the actual browser instance (Chromium, Firefox, WebKit).
+
+    Think of it as starting Chrome/Firefox on your computer.
+
+    In Playwright, you can launch:
+
+        browser = p.chromium.launch()
+        browser = p.firefox.launch()
+        browser = p.webkit.launch()
+
+    Key options:
+        headless=True → runs without showing the browser window.
+        slow_mo=100 → slows actions for easier debugging.
+
+2. Browser Context
+    A separate browser profile within the same browser instance.
+    Each context has its own cookies, cache, local storage — like incognito mode.
+    Useful for running tests in parallel without interference.
+
+    Example:
+        context = browser.new_context()
+    Note:
+        You can create multiple contexts for different users/logins at the same time.
+
+3. Page
+    A single browser tab inside a context.
+    This is where you interact with the site(click, type, extract data).
+
+    Example:
+        page = context.new_page()
+        page.goto("https://example.com")
+
+Flow of these concepts:
+    Browser → Context → Page → Interactions
+
+
+Example:
+
+    from playwright.sync_api import sync_playwright
+
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        context = browser.new_context()
+        page = context.new_page()
+        page.goto("https://example.com")
+        print(f"Title: {page.title()}")
+        browser.close()

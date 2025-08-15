@@ -1,0 +1,8 @@
+Headless vs Headed Mode:
+
+    Headless (default): Browser runs in background (faster, good for automation).
+    headed: Browser window appears (good for debugging).
+        Set via:
+            browser = p.chromium.launch(headless=False)
+
+

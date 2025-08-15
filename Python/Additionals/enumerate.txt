@@ -7,3 +7,11 @@ nums = [1, 2, 3, 4, 5]
 for idx, num in enumerate(nums):
     print(idx,num)
 
+# Output:
+    0 1
+    1 2
+    2 3
+    3 4
+    4 5
+
+enumerate returns the index.

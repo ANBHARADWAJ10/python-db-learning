@@ -74,3 +74,11 @@ Wait time:
 locator().wait_for()
     is more robust than page.wait_for_selector() in sync mode.
 
+
+
+Playwright's async API and Asyncio:
+    Asynchronous programming can be particularly beneficial when dealing with I/O-bound tasks such as web scraping,
+    as it allows us to do other stuff while waiting for some I/O operation (like waiting for an HTTP response, storing data to the file, and so on).
+
+    We'll transform our initial script into an asynchronous version using Playwright's async API and Asyncio,
+    a standard Python library that supports working with asynchronous I/O, event loops, coroutines, and tasks.
