@@ -1,0 +1,1 @@
+This is a mini project on Automation where the data is taken from csv file and fills the form automatically.
