@@ -1,0 +1,108 @@
+Selectors in Playwright:
+
+    Element Selection:
+        This is a concept where it helps us to perform user-like actions, and handle dynamic content loading.
+
+        - CSS Selectors
+            - By ID
+                - page.click("button#submit")
+            - By class
+                - page.click(".btn-primary")
+            - By attribute
+                - page.click("input[name='email']")
+
+        - Text Selectors
+            - path.click("text=Submit")
+
+        - XPath Selectors
+            - page.click("//button[@id=Submit]")
+
+        - Role Selectors
+            - page.get_by_role("button", name="Submit").click()
+Basic Actions
+
+        - click
+            - page.click("text=Login")
+
+        - type & fill
+            - type
+                - types slowly, simulating user typing
+                - page.type("#username","my_user")
+            - fill
+                - Directly fills the input
+                - page.fill("#password","secret")
+
+        - Select from Dropdown
+            - page.select_option("#coutry","India")
+
+        - Check / Uncheck
+            - page.check("#terms")
+            - page.uncheck("#terms")
+
+        - custom radio check boxes
+            - # Click the label instead of the hidden input
+            - page.locator("label[for='gender-radio-1']").click()
+
+            - page.get_by_text("Male", exact=True).click()
+
+    - Select_option
+        - helps us to select us options if there are options given in inner text
+        - page.select_option("select[class*=''] >> nth=0, 'option'")
+
+    - Upload a Single file
+        - page.set_input_files("input[type='file']", "Path")
+
+    - Upload Multiple Files
+        - page.set_input_files("input[type='file']",[
+            "Path",
+            "Path"
+        ])
+
+    - Clear Uploaded Files
+        - page.set_input_files("input[type='file']", [])
+
+
+Timeouts - Waits
+    - Implicit Wait
+        - page.set_default_timeout(5000) # 5 seconds
+
+    - Explicit Wait
+        - page.wait_for_selector("text=Dashboard")
+
+    - Wait for Navigation
+        - with page.expect_navigation():
+             page.click("text=Submit")
+
+
+Assertions:
+    - from playwright.sync_api import expect
+      expect(page.locator("h1")).to_have_text("Welcome")
+      expect(page.locator(#login)).to_be_visible()
+
+
+DropDowns:
+    - # Select by value
+        page.select_option("select#state", "NCR")
+
+    - # Select by label (visible text)
+        page.select_option("select#state", label="Uttar Pradesh")
+
+    - # Select by index
+        page.select_option("select#state", index=2)
+
+    - # Select multiple values (if multi-select dropdown)
+        page.select_option("select#subjects", ["Maths", "English"])
+
+    - Custom DropDowns:
+        - # Select State
+            page.click("#state")              # open dropdown
+            page.click("text=Uttar Pradesh")  # choose option
+
+        - # Select City
+            page.click("#city")
+            page.click("text=Lucknow")
+
+    | ⚡ Rule of Thumb
+    |
+    | If the dropdown is <select>, always use .select_option().
+    | If it’s custom-styled (div, ul, etc.), you need .click() → .click(option).
