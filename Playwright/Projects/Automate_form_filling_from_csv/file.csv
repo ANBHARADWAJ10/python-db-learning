@@ -1,5 +1,6 @@
-firstname,lastname,email,mobilenumber
-Nikhil,Anantharaju,nik@gmail.com,7894561230
-Siva,Anantharaju,siv@gmail.com,4565454654
-Tony,Stark,tony@gmail.com,7036614564
-Peter,Parker,spiderman@gmail.com,4646654454
+firstname,lastname,Gender,email,mobilenumber
+Nikhil,Anantharaju,Male,nik@gmail.com,7894561230
+Siva,Anantharaju,Male,siv@gmail.com,4565454654
+Tony,Stark,Male,tony@gmail.com,7036614564
+Peter,Parker,Male,spiderman@gmail.com,4646654454
+Anusha,Apara,Female,anu@gmail.com,6546464641

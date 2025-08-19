@@ -9,6 +9,7 @@ def fill_form(page, firstname, lastname, email, mobilenumber):
     page.type("#lastName", lastname)
     page.type("#userEmail", email)
     page.type("#userNumber", mobilenumber)
+    page.get_by_text("Male", exact=True).click()
     page.click("button[type='submit']")
 
     time.sleep(2)
