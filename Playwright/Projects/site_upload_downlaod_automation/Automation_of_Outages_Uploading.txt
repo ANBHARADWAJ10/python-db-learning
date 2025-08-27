@@ -1,0 +1,31 @@
+Step 1: Get Outage Data from Site24x7
+
+    Open the Site24x7 website in your browser first in visible (we can change that later to the headless mode)
+    Find where the outage reports are - usually under "outages" tab
+    Note down the steps you normally do by hand:
+    so here we follow these steps:
+        First session:
+            1 - Here we log in for the first time using our credentials
+            2 - Enter the otp manually
+        Second session:
+            1 - It saves the credentials so that we need not look, as it runs automatically
+            2 - If there are outages, and then it downloads it in the form of PDF.
+            3 - It saves that PDF in downloads folder.
+
+Step 2: Upload the Outages PDF into CES DB QUERY
+
+    1 - Here we log in with our credentials
+    2 - Then select the folder by clicking on the place where we want to upload
+    3 - Select the file from local storage that has been previously downloaded from Site24X7
+    4 - It returns a message in the terminal that the file has been uploaded
+
+Step 3: We have to set up a time frame
+
+    1 - Here we set up a time frame and then the automation runs on its own.
+
+Step 4: Here we combine all three steps and make a full-fledged working code into one.
+
+DRAWBACKS:
+    - Once in a while we have to check if the credentials cookies are expired
+    - The otp has to be entered manually when your logging in for the first time
+    - In the second step there is a part where we may need okta login we can only confirm that while doing the automation.

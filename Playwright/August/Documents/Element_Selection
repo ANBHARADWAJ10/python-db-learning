@@ -15,7 +15,16 @@ Selectors in Playwright:
             - path.click("text=Submit")
 
         - XPath Selectors
+            - '//tagname[@atrribute = "value"]'
+            - It has to be unique
+            - It can be found by using 'ctrl + f' after going into the inspect in the browser.
+            - Then copy the xpath you created and paste it there and if it highlights the correct one.
+            - Then you can consider it as unique.
             - page.click("//button[@id=Submit]")
+
+            - text
+                - '//tagname[text()="text"]'
+                - '//p[text()="Submit"]'
 
         - Role Selectors
             - page.get_by_role("button", name="Submit").click()
@@ -106,3 +115,13 @@ DropDowns:
     |
     | If the dropdown is <select>, always use .select_option().
     | If it’s custom-styled (div, ul, etc.), you need .click() → .click(option).
+
+Note:
+    - Best Practice Summary
+        - Use Locator API and rely on Playwright’s auto-waiting for most cases.
+        - Use waitForSelector for extra control in special situations (page states, non-actionable elements, edge cases).
+        - Avoid using hard waits (waitForTimeout) as much as possible—these can degrade reliability.
+        - If using waitForSelector, be specific with your selector, state, timeout, and handle possible errors in your test logic.
+
+    - For things like making sure the UI is ready and the proceed with what we want to do.
+

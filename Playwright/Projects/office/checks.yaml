@@ -1,0 +1,66 @@
+applications:
+  - name: Marketing & CRM Monitoring
+    urls:
+      - url: "https://www.facebook.com/"
+        max_retries: 2
+        assertions:
+          - type: title_contains
+            value: "Facebook"
+          - type: status
+            value: 200
+          - type: url_contains
+            value: "facebook.com"
+
+      - url: "https://www.google.com/"
+        assertions:
+          - type: title_contains
+            value: "Google"
+          - type: status
+            value: 200
+          - type: element_present
+            selector: "input[name='q']"
+
+      - url: "https://www.exactdata.com/info/"
+        max_retries: 3
+        assertions:
+          - type: contains_text
+            value: "Exact Data"
+          - type: status
+            value: 200
+          - type: url_contains
+            value: "exactdata.com"
+
+      - url: "https://www.data-axle.com/"
+        assertions:
+          - type: contains_text
+            value: "Data Axle"
+          - type: status
+            value: 200
+          - type: title_contains
+            value: "Data Axle"
+
+  - name: Demo Site with Enhanced Steps
+    urls:
+      - url: "https://demo.automationtesting.in/Index.html"
+        max_retries: 2
+        steps:
+          - type: wait_for_selector
+            selector: "#email"
+            timeout: 30000
+          - type: fill
+            selector: "#email"
+            value: "test@gmail.com"
+          - type: wait
+            value: 1
+          - type: click
+            selector: "#enterimg"
+          - type: wait_for_selector
+            selector: "input[placeholder='First Name']"
+            timeout: 45000
+        assertions:
+          - type: title_contains
+            value: "Register"
+          - type: element_present
+            selector: "input[placeholder='First Name']"
+          - type: url_contains
+            value: "Register.html"
